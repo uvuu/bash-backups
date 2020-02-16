@@ -12,20 +12,16 @@ fi
 
 # Put here separate files for archiving(archives will have prefix F_) 
 FILES=(
- "backup.sh"
 )
 
 # Put directories here for non-recursive archiving(archives will have prefix NR_)
 NON_RECURSIVE=(
- "/root/backups"
+ "/root/backups" # Pack backuping stuff itself
 )
 
 # Put directories here for recursive archiving(archives will have prefix R_)
 RECURSIVE=(
 )
-
-# Pack backuping stuff
-#find . -maxdepth 1 -type f -exec tar cvfz $DIR/backup_scripts.tar.gz {} +
 
 ARCHIVE=''
 
