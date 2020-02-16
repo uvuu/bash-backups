@@ -11,10 +11,14 @@ if [ ! -d "$LOCAL_DIR" ]; then
   mkdir $LOCAL_DIR
 fi
 
+# Run dumping script
+#. dump.sh
+
 # Run archiving script. Time is unnecessary arg here
 . archivation.sh $LOCAL_DIR $TIME
 
 # Run encriting script
+#. encription.sh
 
 REMOTE_DIR=backups           # Set up remote backup foler
 
