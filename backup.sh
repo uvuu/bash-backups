@@ -3,7 +3,7 @@
 TIME='' # Pass this value as first arg(e.g. real time, daily, weekly...)
 
 if [ -n "$1" ]; then
-TIME=.$1
+TIME=$1
 fi
 
 LOCAL_DIR=/root/backups/data # Set up local backup folder
@@ -11,8 +11,8 @@ if [ ! -d "$LOCAL_DIR" ]; then
   mkdir $LOCAL_DIR
 fi
 
-# Run archiving script
-. archivation.sh $LOCAL_DIR
+# Run archiving script. Time is unnecessary arg here
+. archivation.sh $LOCAL_DIR $TIME
 
 # Run encriting script
 
