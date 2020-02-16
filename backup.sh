@@ -7,6 +7,9 @@ TIME=.$1
 fi
 
 LOCAL_DIR=/root/backups/data # Set up local backup folder
+if [ ! -d "$LOCAL_DIR" ]; then
+  mkdir $LOCAL_DIR
+fi
 
 # Run archiving script
 . archivation.sh $LOCAL_DIR
