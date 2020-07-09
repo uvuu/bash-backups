@@ -6,8 +6,10 @@ if [ -n "$1" ]; then
 TIME=$1
 fi
 
-DUMPS_DIR=/root/backups/dumps # Set up dumps folder
-LOCAL_DIR=/root/backups/data # Set up local backup folder
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" # Current script dir
+
+DUMPS_DIR=$DIR/../dumps # Set up dumps folder
+LOCAL_DIR=$DIR/../data # Set up local backup folder
 if [ ! -d "$DUMPS_DIR" ]; then
   mkdir $DUMPS_DIR
 fi 
@@ -16,10 +18,10 @@ if [ ! -d "$LOCAL_DIR" ]; then
 fi
 
 # Run dumping script
-. dump.sh $DUMPS_DIR $TIME
+$DIR/dump.sh $DUMPS_DIR $TIME
 
 # Run archiving script. Time is unnecessary arg here
-. archivation.sh $LOCAL_DIR $TIME
+$DIR/archivation.sh $LOCAL_DIR $TIME -A
 
 # Run encriting script
 #. encription.sh
