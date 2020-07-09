@@ -31,8 +31,11 @@ REMOTE_DIR=backup_thewayfarer_xyz           # Set up remote backup foler
 AUTH_DATA='--user name:pass'  # Set up auth data
 WEBDAV_ADDRES='https://webdav.yandex.ru' # Set up webdav server URL
 
+# 2>&1 is neseccary for the two next commands since it pushes the output(log) info on the error steam
 # Create folder
-curl -X MKCOL $AUTH_DATA $WEBDAV_ADDRES/$REMOTE_DIR
+curl -X MKCOL $AUTH_DATA $WEBDAV_ADDRES/$REMOTE_DIR 2>&1 
 
 # Upload all files from local folder
-ls -f $LOCAL_DIR | xargs -I{} curl -T $LOCAL_DIR/{} $AUTH_DATA $WEBDAV_ADDRES/$REMOTE_DIR/{}
+ls -f $LOCAL_DIR | xargs -I{} curl -T $LOCAL_DIR/{} $AUTH_DATA $WEBDAV_ADDRES/$REMOTE_DIR/{} 2>&1
+
+echo "Finished!"
