@@ -8,5 +8,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  #This is real
 
 TODO:
 1. Add possibility for encription
-2. Use getopts
-3. Add possibility to set all-in-one archive name
+2. TRY TO USE RCLONE!!! See the following links https://rclone.org/yandex/, https://rclone.org/drive/
+3. Use getopts
+4. Add possibility to set all-in-one archive name
